@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+		<title>Flights to Mars</title>
+    <link href="design2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+      <br>
+      <div id="wrapper">
+            <div id="mainphoto">&nbsp;</div>  <!-- end mainphoto -->
+            <div id="nav">
+                  <table id='table1' width='900'>
+                  <tr>
+                  <td align='center' width='110' >
+                  <img src='images\mars.jpg' alt='This is Mars' height='100' id='mars'>
+					  </td>
+                  <td align='center' width='110' >
+                  <img src='images\earth.jpg' alt='This is Earth' height='100' id='earth' >
+                  </td>
+                  <td align='center' width='110' >
+                  <img src='images\pluto.jpg' alt='This is Pluto' height='100' id='pluto' >
+                  </td>
+                  <td align='center' width='110' >
+                  <img src='images\mercury.jpg' alt='This is Mercury' height='100' id='mercury'>
+                  </td>
+                  <td align='center' width='110' >
+                  <img src='images\venus.jpg' alt='This is Venus' height='100' id='venus' >
+                  </td>
+                  <td align='center' width='110' >
+                  <img src='images\moon.jpg' alt='This is Moon' height='100' width='100' id='moon' >
+                  </td>
+                  </tr>
+                  <tr>
+                  <td id='marsT' align='center' width='110' >&nbsp;</td>
+                  <td id='earthT' align='center' width='110' >&nbsp;</td>
+                  <td id='plutoT' align='center' width='110' >&nbsp;</td>
+                  <td id='mercuryT' align='center' width='110' >&nbsp;</td>
+                  <td id='venusT' align='center' width='110' >&nbsp;</td>
+                  <td id='moonT' align='center' width='110' >&nbsp;</td>
+                  </tr>
+                  </table>
+            </div> <!-- end nav -->
+            <div id="col1">
+                  <div id="col1content">
+                        <h3 id='orderform'>Flights to Mars - Order Form</h3>
+                        <p id='details'>
+                        <form method=post action="jcform.asp" name="edgar" >
+                              <p id='pt1'> First name
+                              <input type=text id="name1" ></p>
+                              <p id='pt2'> Address
+                              <input type=text id="address"  ></p>
+                              <p id='pt3'> Phone Number
+                              <input type=text id="phone" ></p>
+                              <p id='pt4'> Email
+                              <input type=text id="email" ></p>
+                              <p>Credit card type
+                              <input type=Radio name="CC" value="Visa" checked>Visa
+                              <input type=Radio name="CC" value="Amex">Amex
+                              <input type=Radio name="CC" value="Mastercard">Mastercard
+                              </p>
+                              <p>Credit card number
+                              <input type=Password id="cardnumber" >
+                              </p>
+                              <p><nobr><input type='submit' value="Buy">
+                              <input type='reset' value="Clear"></nobr></p>
+                        </form></p>
+                  </div>  <!-- end col1content -->
+            </div>  <!-- end col1 -->
+            <div id="col2">
+                  <div id="col2content">
+                  <h3 id='intro'>Introduction </h3>
+                  <p id='blurb'>
+                  Do you want to be amongst the first space flight passengers
+                  to Mars? Join our flight service (as endorsed by Patrick
+                  Mooreish) and see the Red Planet for yourselves !!
+                  All you have to do is fill in the details (Name, Address,
+                  Phone, Email and Credit Card details) and we will rush you
+                  the tickets. This flight is SO NOT likely to happen !!!!!! (for a while)</p>
+                  </div>  <!-- end col2content -->
+            </div>  <!-- end col2 -->
+            <div id="footer">
+            <p><b>&copy; Bear Computer Services Ltd. | Original style design by BlueSky Web Studios</b></p>
+            </div>  <!-- end footer -->
+      </div>  <!-- end wrapper -->
+</body>
+<script>
+		 function Init()
+		 {
+		  	var ins = document.getElementsByTagName("input");
+		    var imgs = document.getElementsByTagName("img");
+		 
+	 		if (window.addEventListener)
+	 		{
+	 			for(i=0 ; i<ins.length ; i++){
+						ins[i].addEventListener("focus",doHighlights,false);
+	 					ins[i].addEventListener("blur",doHighlights,false);
+				}
+				
+	 			document.getElementById("blurb").addEventListener("mouseover",doBackground,false);
+	 			document.getElementById("blurb").addEventListener("mouseout",doBackground,false);
+				
+				for(i=0 ; i<imgs.length ; i++){
+	 					imgs[i].addEventListener("mouseover",doText,false);
+	 					imgs[i].addEventListener("mouseout",doText,false);
+				}
+	 		}
+	 		else if (window.attachEvent)
+	 		{
+	 			for(i=0 ; i<ins.length ; i++){
+						ins[i].attachEvent("focus",doHighlights);
+	 					ins[i].attachEvent("blur",doHighlights);
+				}
+	 			document.getElementById("blurb").attachEvent("onmouseover",doBackground);
+	 			document.getElementById("blurb").attachEvent("onmouseout",doBackground);
+				for(i=0 ; i<imgs.length ; i++){
+	 					imgs[i].attachEvent("mouseover",doText);
+	 					imgs[i].attachEvent("mouseout",doText);
+				}
+	 		}
+	 		else
+	 		{
+ 			 	alert("I have nothing");
+	 		}
+	 	}
+		function doHighlights(e)
+		{
+			if (!e) { e = window.event; }
+			if (e.type == "focus" || e.type == "onfocus"){
+		 		 document.getElementById(this.id).style.backgroundColor = "red";
+			} else {
+				 document.getElementById(this.id).style.backgroundColor = "white";
+			}
+		}
+		function doBackground(e)
+		{
+			if (!e) { e = window.event; }
+			if (e.type == "mouseover" || e.type == "onmouseover"){
+		 		 document.getElementById("blurb").style.backgroundColor = "yellow";
+			} else {
+				 document.getElementById("blurb").style.backgroundColor = "";
+			}
+		}
+		function doText(e)
+		{
+			if (!e) { e = window.event; }
+			if (e.type == "mouseover" || e.type == "onmouseover"){
+		 		 document.getElementById(this.id + "T").innerHTML = document.getElementById(this.id).alt;
+			} else {
+				 document.getElementById(this.id + "T").innerHTML = "&nbsp;";
+			}
+		}
+		
+	 Init()
+
+</script>
+</html>
